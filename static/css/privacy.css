@@ -1,0 +1,113 @@
+:root {
+    --gray: #333;
+    --orange: #F5AF00;
+    --title-black: #1b1c1e;
+    --title-white: #faf9f6;
+    --content-black: #303030;
+    --content-white: #FBFCF8;
+    --content-orange: #FFA800;
+    --title-size-sm: 22px;
+    --title-size-md: 34px;
+    --title-size-lg: 38px;
+    --logo-font: 'Jomhuria', sans-serif;
+    --poppins-font: 'Poppins', sans-serif;
+    --link-font: 'Podkova', serif;
+    --content-size-sm: 18px;
+    --content-size-md: 22px;
+    --content-size-lg: 28px;
+}
+
+body {
+    background-color: var(--title-white);
+}
+
+.top-container {
+    z-index: 1000;
+    background-color: var(--title-white);
+}
+
+.nav-ul .nav-link,
+.logo-section h1 {
+    color: var(--title-black) !important;
+}
+
+.policy {
+    width: auto;
+    margin: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--title-white);
+    z-index: 999;
+}
+
+.title {
+    margin: 0 0 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+.title h1 {
+    font-family: var(--poppins-font);
+    font-size: var(--title-size-sm);
+    color: var(--title-black);
+    text-align: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.section h2 {
+    font-family: var(--poppins-font);
+    color: var(--title-black);
+    font-size: var(--content-size-sm);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section p {
+    font-family: var(--poppins-font);
+    font-size: 14px;
+    color: var(--content-black);
+    text-align: left;
+    text-indent: 2rem;
+    margin-bottom: 1rem;
+}
+
+.section a {
+    font-family: var(--link-font);
+    text-decoration: none;
+    font-size: var(--content-size-sm);
+}
+
+@media only screen and (min-width: 863px) {
+    .title h1 {
+        font-size: var(--title-size-md);
+    }
+
+    .section h2 {
+        font-size: var(--content-size-md);
+    }
+
+    .section p {
+        font-size: 18px;
+        text-align: justify;
+    }
+
+    .section a {
+        font-size: var(--content-size-md);
+    }
+
+    .section a:hover {
+        opacity: .8;
+    }
+}
