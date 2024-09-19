@@ -32,13 +32,8 @@ $(document).ready(() => {
 
     $(window).scroll(function () {
         if (checkWidth() === 'lg') {
+            $(".top-container").removeClass("scrolled");
             if ($(this).scrollTop() > 50) {
-                $(".top-container").addClass("scrolled");
-            } else {
-                $(".top-container").removeClass("scrolled");
-            }
-        } else {
-            if ($(this).scrollTop() > 5) {
                 $(".top-container").addClass("scrolled");
             } else {
                 $(".top-container").removeClass("scrolled");
