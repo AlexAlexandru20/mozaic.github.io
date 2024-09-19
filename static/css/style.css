@@ -193,7 +193,7 @@ body {
     transition: width .5s ease-in-out;
 }
 
-.top-container.scrolled .nav-link:hover:not(#magyar)::after {
+.top-container.scrolled .nav-link:hover:not(#magyar):not(.active-section):after {
     width: 100%;
 }
 
@@ -1021,7 +1021,7 @@ li {
         transition: width .5s ease-in-out;
     }
 
-    .nav-link:hover:not(#magyar)::after {
+    .nav-link:hover:not(#magyar):not(.active-section):after {
         width: 100%;
     }
 
