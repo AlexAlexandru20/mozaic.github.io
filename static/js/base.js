@@ -45,14 +45,7 @@ $(document).ready(() => {
     $("#open-menu").click(function () {
         toggleMenu();
     });
-    function toggleMenu() {
-        $(".mob-dropdown").toggleClass("open");
-        if ($(".mob-dropdown").hasClass("open")) {
-            $("#openMenu").attr("src", "static/images/close-icon.png");
-        } else {
-            $("#openMenu").attr("src", "static/images/menu.png");
-        }
-    }
+
     $(window).scroll(function () {
         if (checkWidth() === 'lg') {
             if ($(this).scrollTop() > 50) {
@@ -123,6 +116,9 @@ $(document).ready(() => {
     });
 
     function scrollToSection(selector, ident) {
+        if (checkWidth() === 'sm') {
+            toggleMenu();
+        }
         $(".nav-ul > li").removeClass('active-section');
         $("html, body").animate(
             {
@@ -132,12 +128,17 @@ $(document).ready(() => {
         );
         $(ident).addClass('active-section');
 
-        if (checkWidth() === 'sm') {
-
-        }
 
     }
 
+    function toggleMenu() {
+        $(".mob-dropdown").toggleClass("open");
+        if ($(".mob-dropdown").hasClass("open")) {
+            $("#openMenu").attr("src", "static/images/close-icon.png");
+        } else {
+            $("#openMenu").attr("src", "static/images/menu.png");
+        }
+    }
     function redirectTO(selector) {
         window.location.href = selector;
     }
