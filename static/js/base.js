@@ -42,7 +42,15 @@ $(document).ready(() => {
         $("#cookie-banner").fadeOut(500);
     });
 
-    $("#open-menu").click(function () {
+    $(document).click(function (event) {
+        if (!$(event.target).closest('#open-menu, .mob-dropdown').length) {
+            // Close the dropdown
+            $('#open-menu').removeClass('open'); // Assuming 'open' is the class that shows the dropdown
+            $("#open-menu").attr("src", "static/images/menu.png");
+        }
+    })
+    $("#open-menu").click(function (event) {
+        event.stopPropagation();
         toggleMenu();
     });
 
