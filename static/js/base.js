@@ -1,4 +1,6 @@
 $(document).ready(() => {
+
+
     function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -32,7 +34,6 @@ $(document).ready(() => {
 
     $(window).scroll(function () {
         if (checkWidth() === 'lg') {
-            $(".top-container").removeClass("scrolled");
             if ($(this).scrollTop() > 50) {
                 $(".top-container").addClass("scrolled");
             } else {
@@ -73,6 +74,14 @@ $(document).ready(() => {
     });
 
 
+    if (checkWidth() === 'sm') {
+        $(".top-container").addClass('scrolled');
+        $(imgContainerSM).empty();
+        showImagesSM(lists['granit'], 'granit');
+    } else {
+        $(imgContainerLG).empty();
+        showImagesLG(lists['granit'], 'granit');
+    }
     $(".phonecall").each(function (index, element) {
         $(element).click(() => {
             window.location.href = "tel:+40784044765";
@@ -144,13 +153,6 @@ $(document).ready(() => {
 
     let currentIndex = 1;
 
-    if (checkWidth() === 'sm') {
-        $(imgContainerSM).empty();
-        showImagesSM(lists['granit'], 'granit');
-    } else {
-        $(imgContainerLG).empty();
-        showImagesLG(lists['granit'], 'granit');
-    }
 
     function checkWidth() {
         let screen_width = screen.width;
