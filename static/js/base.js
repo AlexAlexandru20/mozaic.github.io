@@ -66,6 +66,9 @@ $(document).ready(() => {
                     $(section.nav).addClass("active-section");
                 }
             });
+        } else {
+            $(".mob-dropdown").removeClass("open");
+            $("#openMenu").attr("src", "static/images/menu.png");
         }
 
 
