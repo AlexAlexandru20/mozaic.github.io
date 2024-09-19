@@ -5,6 +5,13 @@ $(document).ready(() => {
 
     let currentIndex = 1;
 
+    lists = {
+        'granit': [4, 2, 3, 1, 10, 11, 12, 13, 15],
+        'mozaic': [1, 2, 3, 4],
+        'blat': [1, 10, 11],
+        'renovari': [1, 2, 3, 4, 5, 6, 7, 10, 11]
+    };
+
     function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -145,12 +152,6 @@ $(document).ready(() => {
         touch: false
     })
 
-    lists = {
-        'granit': [4, 2, 3, 1, 10, 11, 12, 13, 15],
-        'mozaic': [1, 2, 3, 4],
-        'blat': [1, 10, 11],
-        'renovari': [1, 2, 3, 4, 5, 6, 7, 10, 11]
-    };
 
 
 
