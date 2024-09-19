@@ -1,5 +1,9 @@
 $(document).ready(() => {
 
+    const imgContainerSM = $("#carousel-inner");
+    const imgContainerLG = $("#galery-lg");
+
+    let currentIndex = 1;
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -148,10 +152,6 @@ $(document).ready(() => {
         'renovari': [1, 2, 3, 4, 5, 6, 7, 10, 11]
     };
 
-    const imgContainerSM = $("#carousel-inner");
-    const imgContainerLG = $("#galery-lg");
-
-    let currentIndex = 1;
 
 
     function checkWidth() {
