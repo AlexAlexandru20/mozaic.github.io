@@ -197,6 +197,10 @@ body {
     width: 100%;
 }
 
+.top-container.scrolled .active-section {
+    color: var(--orange) !important;
+}
+
 .logo-section {
     width: 45%;
     height: auto;
@@ -378,6 +382,7 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 10rem 0;
 }
 
 .top-section {
@@ -386,7 +391,6 @@ li {
     align-items: center;
     width: 90%;
     height: auto;
-    margin: 5rem 0;
 }
 
 .top-left,
@@ -974,6 +978,10 @@ li {
     .contact-sm,
     #carousel {
         display: none;
+    }
+
+    .nav-ul .active-section {
+        color: var(--content-orange) !important;
     }
 
     .logo-section {

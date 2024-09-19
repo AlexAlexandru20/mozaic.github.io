@@ -5,12 +5,20 @@ $(document).ready(() => {
 
     let currentIndex = 1;
 
-    lists = {
+    let lists = {
         'granit': [4, 2, 3, 1, 10, 11, 12, 13, 15],
         'mozaic': [1, 2, 3, 4],
         'blat': [1, 10, 11],
         'renovari': [1, 2, 3, 4, 5, 6, 7, 10, 11]
     };
+
+    let sections = [
+        { id: "#startSection", nav: "#home" },
+        { id: "#topSection", nav: "#start" },
+        { id: "#services", nav: "#service" },
+        { id: "#photos-section", nav: "#images" },
+        { id: "#contact-section", nav: "#contact" }
+    ];
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -50,6 +58,19 @@ $(document).ready(() => {
             } else {
                 $(".top-container").removeClass("scrolled");
             }
+
+            let scrollPosition = $(window).scrollTop();
+
+            sections.forEach(section => {
+                let sectionTop = $(section.id).offset().top - (5 * parseFloat($("html").css("font-size"))); // 5rem offset
+                let sectionHeight = $(section.id).outerHeight();
+
+                // Check if section is in view
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    $(".nav-ul > li").removeClass("active-section");
+                    $(section.nav).addClass("active-section");
+                }
+            });
         }
 
 
@@ -99,13 +120,16 @@ $(document).ready(() => {
         });
     });
 
-    function scrollToSection(selector) {
+    function scrollToSection(selector, ident) {
+        $(".nav-ul > li").removeClass('active-section');
         $("html, body").animate(
             {
-                scrollTop: $(selector).offset().top,
+                scrollTop: $(selector).offset().top - (5 * parseFloat($("html").css("font-size"))), // 5rem in pixels
             },
             500
         );
+        $(ident).addClass('active-section');
+
     }
 
     function redirectTO(selector) {
@@ -115,22 +139,22 @@ $(document).ready(() => {
     // Event handlers
     $(".home").each(function (index, element) {
         $(element).click(() => {
-            scrollToSection("#startSection");
+            scrollToSection("#startSection", '#home');
         });
     });
     $(".service").each(function (index, element) {
         $(element).click(() => {
-            scrollToSection("#services");
+            scrollToSection("#services", "#service");
         });
     });
     $(".images").each(function (index, element) {
         $(element).click(() => {
-            scrollToSection("#photos-section");
+            scrollToSection("#photos-section", "#images");
         });
     });
     $(".contact").each(function (index, element) {
         $(element).click(() => {
-            scrollToSection("#contact-section");
+            scrollToSection("#contact-section", "#contact");
         });
     });
     $(".magyar").each(function (index, element) {
@@ -143,7 +167,7 @@ $(document).ready(() => {
             redirectTO("index.html");
         });
     });
-    $("#start").click(() => scrollToSection("#topSection"));
+    $("#start").click(() => scrollToSection("#topSection", '#home'));
 
     const myCarouselElement = document.querySelector('#carousel');
 
