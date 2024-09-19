@@ -233,8 +233,9 @@ $(document).ready(() => {
                 .addClass('col');
 
             let img = $("<img>")
-                .attr('src', `static/images/${dir_name}/${num}.png`)
+                .attr('src', `static/images/${dir_name}/${num}.webp`)
                 .attr('alt', 'All images')
+                .attr('loading', 'lazy')
                 .addClass('imgFade');
 
             img_container.append(img);
@@ -256,8 +257,9 @@ $(document).ready(() => {
             let new_class = num < 10 ? 'oriz' : 'vert';
 
             let img = $("<img>")
-                .attr('src', `static/images/${dir_name}/${num}.png`)
+                .attr('src', `static/images/${dir_name}/${num}.webp`)
                 .attr('alt', 'All images')
+                .attr('loading', 'lazy')
                 .addClass(`d-block w-100 ${new_class}`);
 
             img_container.append(img);
