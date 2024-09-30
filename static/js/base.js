@@ -49,6 +49,7 @@ $(document).ready(() => {
 
     $(window).scroll(function () {
         if (checkWidth() === 'lg') {
+            // Handle scroll for top-container
             if ($(this).scrollTop() > 50) {
                 $(".top-container").addClass("scrolled");
             } else {
@@ -57,6 +58,7 @@ $(document).ready(() => {
 
             let scrollPosition = $(window).scrollTop();
 
+            // Update active section highlighting
             sections.forEach(section => {
                 let sectionTop = $(section.id).offset().top - (5 * parseFloat($("html").css("font-size"))); // 5rem offset
                 let sectionHeight = $(section.id).outerHeight();
@@ -68,21 +70,21 @@ $(document).ready(() => {
                 }
             });
 
-            // Check if the contact section passes the bottom
+            // Handle the contact section visibility
             const contactSection = $('#contact');
-            const contactButton = $('#contactButton'); // Assuming contactButton is the selector for the button in your navigation
+            const contactButton = $('#contactButton'); // Selector for the contact button
 
             if (contactSection.length) {
                 let contactTop = contactSection.offset().top;
+                let contactHeight = contactSection.outerHeight();
                 let windowHeight = $(window).height();
-                let documentHeight = $(document).height();
                 let scrollBottom = scrollPosition + windowHeight;
 
-                // Check if the contact section passes the bottom of the page
-                if (scrollBottom >= documentHeight || scrollPosition + windowHeight >= contactTop) {
-                    contactButton.addClass('active-section');
+                // Add 'active-link' when contact section is visible
+                if (scrollBottom >= contactTop && scrollPosition < contactTop + contactHeight) {
+                    contactButton.addClass('active-link');
                 } else {
-                    contactButton.removeClass('active-section');
+                    contactButton.removeClass('active-link');
                 }
             }
         } else {
@@ -90,17 +92,14 @@ $(document).ready(() => {
             $("#openMenu").attr("src", "static/images/menu.png");
         }
 
-
+        // Handle slider animation
         $(".slider").each(function () {
             var $slider = $(this);
             var sliderTop = $slider.offset().top;
             var sliderHeight = $slider.outerHeight();
             var windowBottom = $(window).scrollTop() + $(window).height();
 
-            if (
-                !$slider.hasClass("animated") &&
-                windowBottom >= sliderTop + sliderHeight
-            ) {
+            if (!$slider.hasClass("animated") && windowBottom >= sliderTop + sliderHeight) {
                 var procentaj = $slider.data("width");
                 var $percentageElement = $slider.closest(".sec").find(".sec-perc");
 
@@ -119,8 +118,8 @@ $(document).ready(() => {
                 $slider.addClass("animated");
             }
         });
-
     });
+
 
 
     if (checkWidth() === 'sm') {
