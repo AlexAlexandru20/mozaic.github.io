@@ -67,6 +67,24 @@ $(document).ready(() => {
                     $(section.nav).addClass("active-section");
                 }
             });
+
+            // Check if the contact section passes the bottom
+            const contactSection = $('#contact');
+            const contactButton = $('#contactButton'); // Assuming contactButton is the selector for the button in your navigation
+
+            if (contactSection.length) {
+                let contactTop = contactSection.offset().top;
+                let windowHeight = $(window).height();
+                let documentHeight = $(document).height();
+                let scrollBottom = scrollPosition + windowHeight;
+
+                // Check if the contact section passes the bottom of the page
+                if (scrollBottom >= documentHeight || scrollPosition + windowHeight >= contactTop) {
+                    contactButton.addClass('active-link');
+                } else {
+                    contactButton.removeClass('active-link');
+                }
+            }
         } else {
             $(".mob-dropdown").removeClass("open");
             $("#openMenu").attr("src", "static/images/menu.png");
