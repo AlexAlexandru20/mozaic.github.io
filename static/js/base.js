@@ -82,9 +82,9 @@ $(document).ready(() => {
 
                 // Add 'active-link' when contact section is visible
                 if (scrollBottom >= contactTop && scrollPosition < contactTop + contactHeight) {
-                    contactButton.addClass('active-link');
+                    contactButton.addClass('active-section');
                 } else {
-                    contactButton.removeClass('active-link');
+                    contactButton.removeClass('active-section');
                 }
             }
         } else {
