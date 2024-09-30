@@ -80,9 +80,9 @@ $(document).ready(() => {
 
                 // Check if the contact section passes the bottom of the page
                 if (scrollBottom >= documentHeight || scrollPosition + windowHeight >= contactTop) {
-                    contactButton.addClass('active-link');
+                    contactButton.addClass('active-section');
                 } else {
-                    contactButton.removeClass('active-link');
+                    contactButton.removeClass('active-section');
                 }
             }
         } else {
