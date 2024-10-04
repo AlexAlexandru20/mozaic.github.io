@@ -88,7 +88,8 @@ $(document).ready(() => {
                 }
             }
         } else {
-            
+            $(".mob-dropdown").removeClass("open");
+            $("#openMenu").attr("src", "static/images/menu.png");
         }
 
         // Handle slider animation
@@ -137,7 +138,7 @@ $(document).ready(() => {
 
     function scrollToSection(selector, ident) {
         if (checkWidth() === 'sm') {
-            
+            closeNavBar();
         }
         $(".nav-ul > li").removeClass('active-section');
         $("html, body").animate(
@@ -161,6 +162,12 @@ $(document).ready(() => {
     }
     function redirectTO(selector) {
         window.location.href = selector;
+    }
+
+    function closeNavBar(){
+        if($(".mob-dropdown").hasClass("open"){
+            $(".mob-dropdown").removeClass("open");
+        }
     }
 
     // Event handlers
