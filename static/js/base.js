@@ -137,7 +137,7 @@ $(document).ready(() => {
 
     function scrollToSection(selector, ident) {
         if (checkWidth() === 'sm') {
-            toggleMenu();
+            
         }
         $(".nav-ul > li").removeClass('active-section');
         $("html, body").animate(
