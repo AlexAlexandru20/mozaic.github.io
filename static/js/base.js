@@ -88,8 +88,7 @@ $(document).ready(() => {
                 }
             }
         } else {
-            $(".mob-dropdown").removeClass("open");
-            $("#openMenu").attr("src", "static/images/menu.png");
+            
         }
 
         // Handle slider animation
